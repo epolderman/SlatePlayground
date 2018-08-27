@@ -1,7 +1,10 @@
-Slate Basics Goals
+# Slate Basics Goals
 
-
-Build a HUD
-Build a component
-Add Component to HUD
-Bind Functions for callbacks and delegates.
+## Small Goals
+### Build a HUD
+### Attach HUD to GameMode
+### Build a component
+### Add Component to HUD
+### Style Component
+### Bind Functions for callbacks and delegates
+### Add styles at runtime
