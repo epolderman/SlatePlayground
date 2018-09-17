@@ -8,3 +8,6 @@
 ### Style Component
 ### Bind Functions for callbacks and delegates
 ### Add styles at runtime
+
+
+### This codebase will mutate often, as I am learning while programming it. 

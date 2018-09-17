@@ -13,7 +13,7 @@ void SStandardSlateWidget::Construct(const FArguments& InArgs)
 	OwnerHUD = InArgs._OwnerHUDArg;
 	
 
-	// onClicked takes (ptr to widget, delegate(pointer to method) 
+		// onClicked takes (ptr to widget, delegate(pointer to method) 
 		ChildSlot
 		.VAlign(VAlign_Center)
 		.HAlign(HAlign_Center)
@@ -31,7 +31,7 @@ void SStandardSlateWidget::Construct(const FArguments& InArgs)
 
 FReply SStandardSlateWidget::ButtonClicked() {
 	if (GEngine != NULL) {
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Button Clicked!"));
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("You clicked a button!"));
 	}
 
 	// prevents the event from bubbling up the parent widget
