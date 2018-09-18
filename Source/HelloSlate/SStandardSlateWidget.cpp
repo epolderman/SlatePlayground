@@ -8,11 +8,11 @@
 
 BEGIN_SLATE_FUNCTION_BUILD_OPTIMIZATION
 
-void SStandardSlateWidget::Construct(const FArguments& InArgs)
+// acts as a constructor
+void SStandardSlateWidget::Construct(const FArguments& InArgs) 
 {
 
-	// ++ Assign the argument to our local variable
-	// name will be _OwnerHUDArg instead of OwnerHUDArg, see comments about SLATE_ARGUMENT before
+	// pass in our arguments
 	OwnerHUD = InArgs._OwnerHUD;
 	
 
@@ -25,7 +25,7 @@ void SStandardSlateWidget::Construct(const FArguments& InArgs)
 			.VAlign(VAlign_Center)
 			.HAlign(HAlign_Center)
 			.OnHovered_Raw(this, &SStandardSlateWidget::ButtonHovered)
-			.ButtonColorAndOpacity(FSlateColor(FLinearColor(0.5f, 0.5f, 0.5f,1.0f)))
+			.ButtonColorAndOpacity(FSlateColor(FLinearColor(0.5f, 0.5f, 0.5f, 1.0f)))
 			.Text(FText::FromString("Slate Button")).DesiredSizeScale(FVector2D(5.0f,5.0f))
 			.OnClicked(this, &SStandardSlateWidget::ButtonClicked)
 		];

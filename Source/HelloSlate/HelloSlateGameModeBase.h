@@ -15,8 +15,5 @@ class HELLOSLATE_API AHelloSlateGameModeBase : public AGameModeBase
 	GENERATED_BODY()
 public:
 	AHelloSlateGameModeBase();
-	
-	
-	
-	
+
 };
