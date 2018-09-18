@@ -16,7 +16,7 @@ void AStandardHUD::BeginPlay()
 	// So far only TSharedPtr<SMyUIWidget> has been created, now create the actual object.
 	// Create a SMyUIWidget on heap, our MyUIWidget shared pointer provides handle to object
 	// Widget will not self-destruct unless the HUD's SharedPtr (and all other SharedPtrs) are destroyed first.
-	MyUIWidget = SNew(SStandardSlateWidget).OwnerHUDArg(this);
+	MyUIWidget = SNew(SStandardSlateWidget).OwnerHUD(this);
 
 	// Pass our viewport a weak ptr to our widget
 	// Viewport's weak ptr will not give Viewport ownership of Widget

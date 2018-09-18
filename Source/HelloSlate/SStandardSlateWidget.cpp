@@ -4,13 +4,16 @@
 #include "SlateOptMacros.h"
 #include "Engine.h"
 
+#define LOCTEXT_NAMESPACE "SStandardSlateWidget"
+
 BEGIN_SLATE_FUNCTION_BUILD_OPTIMIZATION
+
 void SStandardSlateWidget::Construct(const FArguments& InArgs)
 {
 
 	// ++ Assign the argument to our local variable
 	// name will be _OwnerHUDArg instead of OwnerHUDArg, see comments about SLATE_ARGUMENT before
-	OwnerHUD = InArgs._OwnerHUDArg;
+	OwnerHUD = InArgs._OwnerHUD;
 	
 
 		// onClicked takes (ptr to widget, delegate(pointer to method) 
@@ -29,6 +32,10 @@ void SStandardSlateWidget::Construct(const FArguments& InArgs)
 
 }
 
+END_SLATE_FUNCTION_BUILD_OPTIMIZATION
+
+#undef LOCTEXT_NAMESPACE
+
 FReply SStandardSlateWidget::ButtonClicked() {
 	if (GEngine != NULL) {
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("You clicked a button!"));
@@ -44,4 +51,4 @@ void SStandardSlateWidget::ButtonHovered() {
 	}
 }
 
-END_SLATE_FUNCTION_BUILD_OPTIMIZATION
+
