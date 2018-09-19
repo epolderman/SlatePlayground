@@ -32,5 +32,5 @@ private:
 	// HUD has a "strong" pointer to Widget, circular ownership would prevent/break self-destruction of hud/widget (cause a memory leak). 
 	// Is there a better way to handle this? Why must we pass the HUD as an argument to the widget?
 	TWeakObjectPtr<class AStandardHUD> OwnerHUD;
-	FText buttonText;
+	FText buttonLabel;
 };

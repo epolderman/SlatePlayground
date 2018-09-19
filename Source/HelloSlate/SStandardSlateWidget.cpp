@@ -25,9 +25,10 @@ void SStandardSlateWidget::Construct(const FArguments& InArgs)
 			.VAlign(VAlign_Center)
 			.HAlign(HAlign_Center)
 			.OnHovered_Raw(this, &SStandardSlateWidget::ButtonHovered)
-			.ButtonColorAndOpacity(FSlateColor(FLinearColor(0.5f, 0.5f, 0.5f, 1.0f)))
-			.Text(this->buttonText.FromString("Slate Button")).DesiredSizeScale(FVector2D(5.0f,5.0f))
+			.ButtonColorAndOpacity(FSlateColor(FLinearColor(0.1f, 0.5f, 0.5f, 1.0f)))
+			.Text(this->buttonLabel.FromString("Slate Button")).DesiredSizeScale(FVector2D(5.0f,5.0f))
 			.OnClicked(this, &SStandardSlateWidget::ButtonClicked)
+			.ToolTipText(this->buttonLabel.FromString("Tool Tip!"))
 		];
 
 }
