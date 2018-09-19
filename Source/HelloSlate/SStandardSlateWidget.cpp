@@ -26,7 +26,7 @@ void SStandardSlateWidget::Construct(const FArguments& InArgs)
 			.HAlign(HAlign_Center)
 			.OnHovered_Raw(this, &SStandardSlateWidget::ButtonHovered)
 			.ButtonColorAndOpacity(FSlateColor(FLinearColor(0.5f, 0.5f, 0.5f, 1.0f)))
-			.Text(FText::FromString("Slate Button")).DesiredSizeScale(FVector2D(5.0f,5.0f))
+			.Text(this->buttonText.FromString("Slate Button")).DesiredSizeScale(FVector2D(5.0f,5.0f))
 			.OnClicked(this, &SStandardSlateWidget::ButtonClicked)
 		];
 
