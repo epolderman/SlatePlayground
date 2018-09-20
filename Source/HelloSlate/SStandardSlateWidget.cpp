@@ -11,9 +11,8 @@ BEGIN_SLATE_FUNCTION_BUILD_OPTIMIZATION
 // acts as a constructor
 void SStandardSlateWidget::Construct(const FArguments& InArgs) 
 {
-
 	// pass in our arguments
-	OwnerHUD = InArgs._OwnerHUD;
+	HUD = InArgs._hudController;
 	
 
 		// onClicked takes (ptr to widget, delegate(pointer to method) 
@@ -25,6 +24,7 @@ void SStandardSlateWidget::Construct(const FArguments& InArgs)
 			.VAlign(VAlign_Center)
 			.HAlign(HAlign_Center)
 			.OnHovered_Raw(this, &SStandardSlateWidget::ButtonHovered)
+		/*	.OnHovered_Raw(HUD, &AStandardHUD::getPlayerHealth)*/
 			.ButtonColorAndOpacity(FSlateColor(FLinearColor(0.1f, 0.5f, 0.5f, 1.0f)))
 			.Text(this->buttonLabel.FromString("Slate Button")).DesiredSizeScale(FVector2D(5.0f,5.0f))
 			.OnClicked(this, &SStandardSlateWidget::ButtonClicked)

@@ -20,4 +20,8 @@ public:
 
 	// ++ Called as soon as game starts, create SCompoundWidget and give Viewport access
 	void BeginPlay();
+	void getPlayerHealth();
+private:
+	int playerHealth = 55; 
+
 };

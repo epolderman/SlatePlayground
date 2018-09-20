@@ -11,6 +11,11 @@
 
 // HUD that owns the widget
 
+// answer these questions!
+// should the hud act as a central controller to the widgets and pass polling data to the components?
+// can I pass in arguments through the HUD to my widgets?
+// are the massive macro's for slate arguments passed in as construction?
+
 void AStandardHUD::BeginPlay()
 {
 	// So far only TSharedPtr<SMyUIWidget> has been created, now create the actual object.
@@ -29,3 +34,13 @@ void AStandardHUD::BeginPlay()
 	// Set widget's properties as visible (sets child widget's properties recursively)
 	MyUIWidget->SetVisibility(EVisibility::Visible);
 }
+
+void AStandardHUD::getPlayerHealth() {
+		
+	const FString pHealth = " " + this->playerHealth;
+
+	if (GEngine != NULL) {
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, pHealth);
+	}
+}
+
