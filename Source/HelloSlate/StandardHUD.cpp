@@ -8,11 +8,14 @@
 
 // ++ To use GEngine. You can also import just "Engine.h" but some people mention this compiles slower than this header.
 #include "Engine.h" 
+#include <DeclarativeSyntaxSupport.h>
+#include <Attribute.h>
+
 
 // HUD that owns the widget
 
 // answer these questions!
-// should the hud act as a central controller to the widgets and pass polling data to the components?
+// should the HUD act as a central controller to the widgets and pass polling data to the components?
 // can I pass in arguments through the HUD to my widgets?
 // are the massive macro's for slate arguments passed in as construction?
 
@@ -25,22 +28,30 @@ void AStandardHUD::BeginPlay()
 	// MyUIWidget = SNew(SStandardSlateWidget).OwnerHUD(this);
 
 	// Pass our viewport a weak ptr to our widget
-	// Viewport's weak ptr will not give Viewport ownership of Widget
-	GEngine->GameViewport->AddViewportWidgetContent(
-		SNew(SWeakWidget)
-		.PossiblyNullContent(MyUIWidget.ToSharedRef())
-	);
+	// View port's weak ptr will not give Viewport ownership of Widget
+	if (GEngine != NULL) {
+		GEngine->GameViewport->AddViewportWidgetContent(
+			SNew(SWeakWidget)
+			.PossiblyNullContent(MyUIWidget.ToSharedRef())
+		);
+	}
 
 	// Set widget's properties as visible (sets child widget's properties recursively)
 	MyUIWidget->SetVisibility(EVisibility::Visible);
 }
 
 void AStandardHUD::getPlayerHealth() {
-		
 	const FString pHealth = " " + this->playerHealth;
-
 	if (GEngine != NULL) {
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, pHealth);
 	}
 }
 
+FReply AStandardHUD::handleButton() {
+	if (GEngine != NULL) {
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("HUD: You clicked a button!"));
+	}
+
+	// prevents the event from bubbling up the parent widget
+	return FReply::Handled();
+}
